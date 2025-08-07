@@ -8,17 +8,20 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import praktikum.EnvConfig;
 import praktikum.pages.LoginPage;
+import praktikum.pages.SidebarPage;
 
 
 public class BaseSetupStatic {
     protected static WebDriver driver;
     protected static LoginPage loginPage;
+    protected static SidebarPage sidebarPage;
 
     @BeforeAll
     public static void setUp(){
         initDriver();//открывает браузер
         driver.get(EnvConfig.BASE_URL);//открывает страницу
         loginPage = new LoginPage(driver);
+        sidebarPage = new SidebarPage(driver);
     }
 
     @AfterAll

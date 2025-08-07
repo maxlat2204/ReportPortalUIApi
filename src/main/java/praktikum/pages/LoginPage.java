@@ -11,7 +11,7 @@ import java.time.Duration;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LoginPage {
-    private final WebDriver driver;//static
+    private final WebDriver driver;
     private final WebDriverWait wait;
 
     public LoginPage(WebDriver driver) {
