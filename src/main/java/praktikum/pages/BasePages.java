@@ -2,6 +2,7 @@ package praktikum.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import praktikum.EnvConfig;
@@ -32,5 +33,11 @@ public class BasePages {
         assertTrue(driver.findElement(element).isEnabled());
         driver.findElement(element).clear();
         driver.findElement(element).sendKeys(data);
+    }
+
+    //Эффект наведения курсора
+    protected void hoverEffect(By elementLocated) {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(driver.findElement(elementLocated)).pause(EnvConfig.PAUSE_HOVER).perform();
     }
 }

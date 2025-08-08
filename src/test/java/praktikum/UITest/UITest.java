@@ -1,5 +1,6 @@
 package praktikum.UITest;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import praktikum.pages.LoginPage;
@@ -9,6 +10,12 @@ public class UITest extends BaseSetupStatic{
     public void logSystem(){
         loginPage.loginSystem("default", "1q2w3e");
     }
+
+    @AfterEach
+    public void delWidget(){
+        dashboardPage.deleteWidget();
+    }
+
     @Test
     public void addNewWidget(){
         sidebarPage.clickButtonDashboards();
@@ -19,7 +26,5 @@ public class UITest extends BaseSetupStatic{
         addNewWidgetPage.fillWidgetNameAndClickButtonAdd("Test Case Maksim");
 
         dashboardPage.checkCreatedWidget();
-
-
     }
 }

@@ -35,7 +35,7 @@ public class BaseSetupStatic {
 
     @AfterAll
     public static void after(){
-//        driver.quit();
+        driver.quit();
     }
 
     //Запуск через firefox описан в файле readme.md
