@@ -20,8 +20,6 @@ public class BaseSetupStatic {
     protected static DashboardPage dashboardPage;
     protected static AddNewWidgetPage addNewWidgetPage;
 
-
-
     @BeforeAll
     public static void setUp(){
         initDriver();//открывает браузер
@@ -53,12 +51,10 @@ public class BaseSetupStatic {
 //        driver = new ChromeDriver();
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-
         options.addArguments("--password-store=basic");
         options.setExperimentalOption("prefs", Map.of(
                 "profile.password_manager_leak_detection", false
         ));
-
         driver = new ChromeDriver(options);
     }
 
@@ -67,4 +63,5 @@ public class BaseSetupStatic {
         WebDriverManager.firefoxdriver().setup();
         driver = new FirefoxDriver();
     }
+
 }

@@ -1,25 +1,16 @@
 package praktikum.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class AddNewWidgetPage extends BasePages {
-//    private final WebDriver driver;
-//    private final WebDriverWait wait;
-//
-//    public AddNewWidgetPage(WebDriver driver) {
-//        this.driver = driver;
-//        this.wait = new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.EXPLICIT_WAIT));
-//    }
 
     public AddNewWidgetPage(WebDriver driver) {
         super(driver);
     }
 
     protected final By radioTestCaseSearch = By.xpath(".//div[text()='Test case search']/ancestor::label");//Радио кнопка TestCaseSearch
-//    protected final By radioTestCaseSearch = By.xpath(".//div[text()='Test case search']");//Радио кнопка TestCaseSearch
     protected final By buttonNextStep = By.xpath(".//span[text()='Next step']/parent::button");//Кнопка NextStep
 
     protected final By inputWidgetName = By.className("input__input--iYEmM");//Поле WidgetName
@@ -27,28 +18,31 @@ public class AddNewWidgetPage extends BasePages {
 
 
     //Метод клика по radioTestCaseSearch
+    @Step("Клик по радио кнопке TestCaseSearch, на странице AddNewWidget")
     public void clickButtonDemoDashboard() {
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", radioTestCaseSearch);
         clickElement(radioTestCaseSearch);
-//        wait.until(ExpectedConditions.attributeContains(radioTestCaseSearch, "class", "active"));
     }
 
     //Метод клика по buttonNextStep
+    @Step("Клик по кнопке NextStep, на странице AddNewWidget")
     public void clickButtonNextStep() {
         clickElement(buttonNextStep);
     }
 
     //Метод ввода данных в поле WidgetName
+    @Step("Ввод данных в поле WidgetName, на странице AddNewWidget")
     public void fillWidgetName(String widgetName){
         fillData(inputWidgetName, widgetName);
     }
 
     //Метод клика по ButtonAdd
+    @Step("Клик по кнопке Add, на странице AddNewWidget")
     public void clickButtonAdd() {
         clickElement(buttonAdd);
     }
 
     //Метод ввода WidgetName и клика по ButtonAdd
+    @Step("Ввод данных в поле WidgetName и клик по кнопке Add, на странице AddNewWidget")
     public void fillWidgetNameAndClickButtonAdd(String widgetName) {
         fillWidgetName(widgetName);
         clickButtonAdd();

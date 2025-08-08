@@ -1,7 +1,9 @@
 package praktikum.UITest;
 
+import io.qameta.allure.Description;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class UITest extends BaseSetupStatic{
@@ -16,6 +18,8 @@ public class UITest extends BaseSetupStatic{
         dashboardPage.deleteWidget();
     }
 
+    @DisplayName("Тест на создание нового виджета")
+    @Description("Создаем новый виджет, типа Test Case Search, и проверяем что он создался")
     @Test
     public void addNewWidget(){
         sidebarPage.clickButtonDashboards();
