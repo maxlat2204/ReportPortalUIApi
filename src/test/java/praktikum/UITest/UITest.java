@@ -3,9 +3,9 @@ package praktikum.UITest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import praktikum.pages.LoginPage;
 
 public class UITest extends BaseSetupStatic{
+
     @BeforeEach
     public void logSystem(){
         loginPage.loginSystem("default", "1q2w3e");
@@ -27,4 +27,5 @@ public class UITest extends BaseSetupStatic{
 
         dashboardPage.checkCreatedWidget();
     }
+
 }

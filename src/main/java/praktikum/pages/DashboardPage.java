@@ -34,9 +34,10 @@ public class DashboardPage extends BasePages {
     //Метод клика по DemoDashboard
     public void clickButtonDemoDashboard() {
         try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(aDemoDashboard));
             driver.findElement(aDemoDashboard).isDisplayed();
             clickElement(aDemoDashboard);
-        } catch (NoSuchElementException e){
+        } catch (Exception e){
             clickButtonAddNewDashboard();
             createNewDemoDashboard();
         }

@@ -62,7 +62,6 @@ public class BaseSetupStatic {
         driver = new ChromeDriver(options);
     }
 
-
     //Открывает браузер Firefox
     public static void startBrowserFirefox(){
         WebDriverManager.firefoxdriver().setup();
