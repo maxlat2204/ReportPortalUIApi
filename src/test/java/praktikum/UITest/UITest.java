@@ -18,6 +18,8 @@ public class UITest extends BaseSetupStatic{
         addNewWidgetPage.clickButtonNextStep();
         addNewWidgetPage.fillWidgetNameAndClickButtonAdd("Test Case Maksim");
 
+        dashboardPage.checkCreatedWidget();
+
 
     }
 }
