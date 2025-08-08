@@ -25,4 +25,12 @@ public class BasePages {
         assertTrue(driver.findElement(element).isEnabled());
         driver.findElement(element).click();
     }
+
+    //Метод ввода данных с ожиданием
+    protected void fillData(By element, String data) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+        assertTrue(driver.findElement(element).isEnabled());
+        driver.findElement(element).clear();
+        driver.findElement(element).sendKeys(data);
+    }
 }
