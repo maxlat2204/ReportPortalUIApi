@@ -6,7 +6,6 @@ import io.restassured.response.ValidatableResponse;
 import praktikum.EndPoints;
 import praktikum.EnvConfig;
 
-
 import static io.restassured.RestAssured.given;
 import static java.net.HttpURLConnection.HTTP_OK;
 
@@ -17,9 +16,9 @@ public class DashboardSteps {
         return given()
                 .log().all()
                 .contentType(ContentType.JSON)
-                .auth().basic(EnvConfig.username, EnvConfig.password)
-                .header("Authorization", "Bearer " + EnvConfig.accessToken)
-                .pathParam("projectName", EnvConfig.projectName)
+                .auth().basic(EnvConfig.USER_LOGIN, EnvConfig.USER_PASSWORD)
+                .header(EnvConfig.HEADER_AUTHORIZATION, EnvConfig.HEADER_BEARER + EnvConfig.API_KEY_TOKEN)
+                .pathParam(EnvConfig.PATH_PARAM_PROJECT_NAME, EnvConfig.PROJECT_NAME)
                 .body(dashboard)
                 .when()
                 .post(EndPoints.CREATE_DASHBOARD_PATH)
@@ -32,10 +31,10 @@ public class DashboardSteps {
         return given()
                 .log().all()
                 .contentType(ContentType.JSON)
-                .auth().basic(EnvConfig.username, EnvConfig.password)
-                .header("Authorization", "Bearer " + EnvConfig.accessToken)
-                .pathParams("projectName", EnvConfig.projectName,
-                        "dashboardId", String.valueOf(dashboardId))
+                .auth().basic(EnvConfig.USER_LOGIN, EnvConfig.USER_PASSWORD)
+                .header(EnvConfig.HEADER_AUTHORIZATION, EnvConfig.HEADER_BEARER + EnvConfig.API_KEY_TOKEN)
+                .pathParams(EnvConfig.PATH_PARAM_PROJECT_NAME, EnvConfig.PROJECT_NAME,
+                        EnvConfig.PATH_PARAM_DASHBOARD_ID, String.valueOf(dashboardId))
                 .when()
                 .delete(EndPoints.GET_DASHBOARD_ID_PATH)
                 .then().log().all();
@@ -46,10 +45,10 @@ public class DashboardSteps {
         return given()
                 .log().all()
                 .contentType(ContentType.JSON)
-                .auth().basic(EnvConfig.username, EnvConfig.password)
-                .header("Authorization", "Bearer " + EnvConfig.accessToken)
-                .pathParams("projectName", EnvConfig.projectName,
-                        "dashboardId", String.valueOf(dashboardId))
+                .auth().basic(EnvConfig.USER_LOGIN, EnvConfig.USER_PASSWORD)
+                .header(EnvConfig.HEADER_AUTHORIZATION, EnvConfig.HEADER_BEARER + EnvConfig.API_KEY_TOKEN)
+                .pathParams(EnvConfig.PATH_PARAM_PROJECT_NAME, EnvConfig.PROJECT_NAME,
+                        EnvConfig.PATH_PARAM_DASHBOARD_ID, String.valueOf(dashboardId))
                 .when()
                 .get(EndPoints.GET_DASHBOARD_ID_PATH)
                 .then().log().all();
@@ -60,9 +59,9 @@ public class DashboardSteps {
         return given()
                 .log().all()
                 .contentType(ContentType.JSON)
-                .auth().basic(EnvConfig.username, EnvConfig.password)
-                .header("Authorization", "Bearer " + EnvConfig.accessToken)
-                .pathParams("projectName", EnvConfig.projectName)
+                .auth().basic(EnvConfig.USER_LOGIN, EnvConfig.USER_PASSWORD)
+                .header(EnvConfig.HEADER_AUTHORIZATION, EnvConfig.HEADER_BEARER + EnvConfig.API_KEY_TOKEN)
+                .pathParams(EnvConfig.PATH_PARAM_PROJECT_NAME, EnvConfig.PROJECT_NAME)
                 .when()
                 .get(EndPoints.CREATE_DASHBOARD_PATH)
                 .then().log().all();
@@ -73,7 +72,7 @@ public class DashboardSteps {
         return getAllDashboardStep()
                 .statusCode(HTTP_OK)
                 .extract()
-                .path("page.totalElements");
+                .path(EnvConfig.BODY_PATH_PAGE_TOTAL_ELEMENTS);
     }
 
 }

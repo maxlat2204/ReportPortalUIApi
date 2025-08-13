@@ -48,7 +48,4 @@ public class AddNewWidgetPage extends BasePages {
         clickButtonAdd();
     }
 
-
-
-
 }

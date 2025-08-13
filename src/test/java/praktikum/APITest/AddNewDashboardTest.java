@@ -3,6 +3,7 @@ package praktikum.APITest;
 import io.qameta.allure.Description;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import praktikum.EnvConfig;
 import praktikum.dashboard.DashboardModel;
 import praktikum.dashboard.DashboardSteps;
 
@@ -18,9 +19,9 @@ public class AddNewDashboardTest extends BaseApiTest {
     public void createAddDashboard(){
         dashboardId = DashboardSteps.createDashboardStep(dashboard)
                 .statusCode(HTTP_CREATED)
-                .body("id", notNullValue())
+                .body(EnvConfig.BODY_PATH_ID, notNullValue())
                 .extract()
-                .path("id");
+                .path(EnvConfig.BODY_PATH_ID);
 
         DashboardSteps.getDashboardStep(dashboardId)
                 .statusCode(HTTP_OK);

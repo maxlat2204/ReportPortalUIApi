@@ -40,4 +40,5 @@ public class BasePages {
         Actions actions = new Actions(driver);
         actions.moveToElement(driver.findElement(elementLocated)).pause(EnvConfig.PAUSE_HOVER).perform();
     }
+
 }

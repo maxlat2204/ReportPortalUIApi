@@ -5,12 +5,13 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import praktikum.EnvConfig;
 
 public class UITest extends BaseSetupStatic{
 
     @BeforeEach
     public void logSystem(){
-        loginPage.loginSystem("default", "1q2w3e");
+        loginPage.loginSystem(EnvConfig.USER_LOGIN, EnvConfig.USER_PASSWORD);
     }
 
     @AfterEach
@@ -27,7 +28,7 @@ public class UITest extends BaseSetupStatic{
         dashboardPage.clickButtonAddNewWidget();
         addNewWidgetPage.clickButtonDemoDashboard();
         addNewWidgetPage.clickButtonNextStep();
-        addNewWidgetPage.fillWidgetNameAndClickButtonAdd("Test Case Maksim");
+        addNewWidgetPage.fillWidgetNameAndClickButtonAdd(EnvConfig.NAME_WIDGET);
 
         dashboardPage.checkCreatedWidget();
     }

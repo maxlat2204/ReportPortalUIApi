@@ -20,7 +20,7 @@ public class BaseApiTest {
 
     @AfterEach
     public void delUser(){
-        if (dashboardId != 0){
+        if (dashboardId > 0){
             deleteDashboardStep(dashboardId)
                     .statusCode(HTTP_OK);
         }

@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import praktikum.EnvConfig;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -19,7 +20,7 @@ public class DashboardPage extends BasePages {
     protected final By buttonDeleteForWindow = By.xpath(".//button[text()='Delete']");//Кнопка удаления во всплывающем окне
 
     protected final By buttonAddNewWidget = By.xpath(".//span[text()='Add new widget']");//Кнопка создать новый Widget
-    protected final By widgetCreated = By.xpath(".//div[text()='Test Case Maksim']");//Созданный виджет
+    protected final By widgetCreated = By.xpath(".//div[text()='" + EnvConfig.NAME_WIDGET + "']");//Созданный виджет
     protected final By buttonDeleteWidget = By.cssSelector("svg[viewBox='-3 -3 20 20'] > path");//Кнопка удаления виджета
 
     protected final By inputNameDashboard = By.xpath(".//input[@placeholder='Enter dashboard name']");//Поле для ввода NameDashboard
